@@ -9,16 +9,39 @@ public class InteractRunner {
         try {
             Calculator calc = new Calculator();
             String exit = "no";
+            String last = "no";
+            boolean start = true;
             while (!exit.equals("yes")) {
+                if(start==false) {
+                System.out.println("Take result : yes/no ");
+                last = reader.next();}
+
+                String first = "";
+                if(last.equals("no")){
+                calc.cleanResult();
                 System.out.println("enter first arg : ");
-                String first = reader.next();
+                first = reader.next();}
+                if(last.equals("yes")){
+                first = "" + calc.getResult();
+                calc.cleanResult();}
+
                 System.out.println("enter second arg : ");
                 String second = reader.next();
-                calc.add(Integer.valueOf(first),Integer.valueOf(second));
+                System.out.println("enter operation : ");
+                String oper = reader.next();
+                if(oper.equals("+")) {calc.sum(Double.parseDouble(first),Double.parseDouble(second));}
+                if(oper.equals("-")) {calc.subtraction(Double.parseDouble(first),Double.parseDouble(second));}
+                if(oper.equals("*")) {calc.multiplication(Double.parseDouble(first),Double.parseDouble(second));}
+                if(oper.equals("/")) {calc.division(Double.parseDouble(first),Double.parseDouble(second));}
+                if(oper.equals("^")) {calc.exponentiation(Double.parseDouble(first),Double.parseDouble(second));}
+
                 System.out.println("Result : " + calc.getResult());
-                calc.cleanResult();
+
+
                 System.out.println("Exit : yes/no ");
                 exit = reader.next();
+                start = false;
+
             }
 
         } finally {

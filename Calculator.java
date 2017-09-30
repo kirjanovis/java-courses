@@ -1,13 +1,28 @@
 public class Calculator {
-    private int result;
+    private double result;
 
-    public void add(int... params) {
-        for (Integer param : params) {
-            this.result = this.result + param;
-        }
+    public void sum(double a, double b)
+    {
+        result = a + b;
+    }
+    public void subtraction(double a, double b)
+    {
+        result = a - b;
+    }
+    public void multiplication(double a, double b)
+    {
+        result = a * b;
+    }
+    public void division(double a, double b)
+    {
+        result = a / b;
+    }
+    public void exponentiation(double a, double b)
+    {
+        result = Math.pow(a,b);
     }
 
-    public int getResult() {
+    public double getResult() {
         return this.result;
     }
 
